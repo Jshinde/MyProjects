@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <limits.h>
 #include "LexAnalyzer.h"
 
 
@@ -55,7 +56,7 @@ int lookup(char ch)
 /* A function to add nextChar to lexeme */
 void addChar()
 {
-	if(lexLen <= 998)
+	if(lexLen <= 9998)
 	{
 		lexeme[lexLen++] = nextChar;
 		lexeme[lexLen] = 0;
@@ -105,8 +106,8 @@ int lex()
 				addChar();
 				getChar();
 			}
-		nextToken = IDENT;
-		break;
+			nextToken = ID;
+			break;
 		
 		/* Parse integer literals */
 		case DIGIT:
@@ -135,7 +136,7 @@ int lex()
 			lexeme[3] = 0;
 			break;
 	} /* End of switch */
-	printf("Token: %d, Value: %s\n", nextToken, lexeme);
+	printf("%s", lexeme);
 	
 	return nextToken;
 } /* End of function lex */

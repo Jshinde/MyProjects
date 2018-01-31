@@ -1,20 +1,21 @@
 /* Global Variables */
 int charClass;
-char lexeme [1000];
+char lexeme [10000];
 char nextChar;
 int lexLen;
 int token;
 int nextToken;
+int lineno;
 FILE *in_fp, *fopen();
 
 /* Character Classes */
 #define LETTER 0
 #define DIGIT 1
-#define UNKNOWN 999
+#define UNKNOWN 9999
 
 /* Token Codes */
 #define INT_LIT 10
-#define IDENT 11
+#define ID 11
 #define ASSIGN_OP 20
 #define ADD_OP 21
 #define SUB_OP 22
